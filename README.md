@@ -44,6 +44,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 | Easy Cache | 25 | ~23s | 1.05it/s | 1 | I2I | 1 MP | 
 | Spectrum | 25 | ~16s | 1.48it/s | 1 | I2I | 1 MP |
 | Spectrum | **45** | ~21s | 2.08 it/s | 1 | I2I | 1 MP |
+| Spectrum | 25 | ~51s | 2.7s/it | 5 | I2I | 1056x1584 |
 
 <details>
    <summary>Old tests with multiple Reference images tested.</summary>
