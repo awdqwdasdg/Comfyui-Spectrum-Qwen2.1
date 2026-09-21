@@ -15,6 +15,7 @@ Random tests done by me with the default spectrum node values (3060 12GB, 928x16
 * Easy cache was ran with `reuse_threshold = 0.20`, `start_percent = 0.20`, and `end_percent = 0.70`
 * Tests ran with sage attention, though fully compatible with comfy kitchen attention (add '--use-ck-attention' to your startup flags or use the `Model Attention Backend` node with `comfy kitchen attention` selected)
 * 45 steps was chosen as I found this is generally where quality becomes more consistent.
+* It _can_ run with easy cache, and it is technically faster, and it generates different images. Use at your own discretion. (tested with `Model Loader` => `Patch Sage Attention KJ / Model Attention Backend / Skip (global attention set with startup flag)` => `Easy Cache (0.2,0.2,0.7)` => `Spectrum (default settings)` => `KSampler`)
 
 For equivalent steps, it is arguably equal quality compared to easy cache (in some cases easy cache ends up creating artifacts while spectrum always looks airbrushed), but it seems to be far faster, allowing me to fit up to around 45 steps while still being faster than Easy Cache.
 
