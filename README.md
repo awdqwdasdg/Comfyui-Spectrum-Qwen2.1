@@ -2,7 +2,7 @@
 
 # **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
 
-Random tests done by me with the default spectrum node values (3060 12GB, 928x1664, 25 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**, Euler + Simple):
+Random tests done by me with the default spectrum node values (3060 12GB, 928x1664, 25 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**, Euler + Simple, Sage attention):
 | Model / Test | Steps | CFG | Diffusion Time | Speed |
 | :--- | :---: | :---: | :---: | :---: |
 | Base | 25 | 1 | ~49s | 1.97s/it |
@@ -11,8 +11,12 @@ Random tests done by me with the default spectrum node values (3060 12GB, 928x16
 | Spectrum | **45** | 1 | ~28s | 1.56it/s |
 | Spectrum | 25 | **4** | ~45s | 2.81s/it |
 
-For equivalent steps, it is lower quality than easy cache, but it seems to be far faster, allowing me to fit up to around 45 steps while still being faster than Easy Cache.
-* Seems to work fine on editing as well, though I haven't done thorough testing.
+* Easy cache values was ran with `reuse_threshold = 0.20`, `start_percent = 0.20`, and `end_percent = 0.70`
+* Tests ran with sage attention, though fully compatible with comfy kitchen attention (add '--use-ck-attention' to your startup flags or use the `Model Attention Backend` node with `comfy kitchen attention` selected)
+
+For equivalent steps, it is arguably equal quality compared to easy cache (in some cases easy cache ends up creating artifacts while spectrum always looks airbrushed), but it seems to be far faster, allowing me to fit up to around 45 steps while still being faster than Easy Cache.
+
+Seems to work fine on editing as well, though I haven't done thorough testing with transparency and varying image inputs.
 
 That's all from me, everything after this is AI slop.
 
