@@ -7,18 +7,28 @@
 * Generations with spectrum often look very similar to the base step generation, but softer and more airbrushed. Good for quick prompt iteration.
 
 Random tests done by me with the default spectrum node values (3060 12GB, 928x1664, 25 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**, Euler + Simple, Sage attention):
-| Model / Test | Steps | CFG | Diffusion Time | Speed |
-| :--- | :---: | :---: | :---: | :---: |
-| Base | 25 | 1 | ~49s | 1.97s/it |
-| Easy Cache | 25 | 1 | ~30s | 1.23s/it |
-| Spectrum | 25 | 1 | ~22s | 1.10it/s |
-| Spectrum | **45** | 1 | ~28s | 1.56it/s |
-| Spectrum | 25 | **4** | ~45s | 2.81s/it |
+| Model / Test | Steps | CFG | Diffusion Time | Speed | Task | Resolution |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Base | 25 | 1 | ~49s | 1.97s/it | T2I | 928x1664 |
+| Base | 25 | 1 | ~49s | 1.98s/it | T2I | 928x1664 |
+| Base | 25 | 1 | ~57s | 2.31s/it | T2I | **1328x1328** |
+| Easy Cache | 25 | 1 | ~30s | 1.23s/it | T2I | 928x1664 |
+| Easy Cache | 25 | 1 | ~30s | 1.20s/it | T2I | 928x1664 |
+| Easy Cache | 25 | 1 | ~35s | 1.44s/it | T2I | **1328x1328** |
+| Spectrum | 25 | 1 | ~22s | 1.10it/s | T2I | 928x1664 |
+| Spectrum | 25 | 1 | ~22s | 1.09it/s | T2I | 928x1664 |
+| Spectrum | 25 | 1 | ~26s | 1.06s/it | T2I | **1328x1328** |
+| Spectrum | **45** | 1 | ~28s | 1.56it/s | T2I | 928x1664 |
+| Spectrum | **45** | 1 | ~29s | 1.55it/s | T2I | 928x1664 |
+| Spectrum | **45** | 1 | ~34s | 1.32it/s | T2I | **1328x1328** |
+| Spectrum | 25 | **4** | ~45s | 2.81s/it | T2I | 928x1664 |
+
 
 * Easy cache was ran with `reuse_threshold = 0.20`, `start_percent = 0.20`, and `end_percent = 0.70`
 * Tests ran with sage attention, though fully compatible with comfy kitchen attention (add '--use-ck-attention' to your startup flags or use the `Model Attention Backend` node with `comfy kitchen attention` selected)
 * 45 steps was chosen as I found this is generally where quality becomes more consistent.
 * It _can_ run with easy cache, and it is technically faster, and it generates different images. Use at your own discretion. (tested with `Model Loader` => `Patch Sage Attention KJ / Model Attention Backend / Skip (global attention set with startup flag)` => `Easy Cache (0.2,0.2,0.7)` => `Spectrum (default settings)` => `KSampler`)
+* Will get around to averaging values later when I have the time, purely a messy table with the times from the example images added for more data.
 
 For equivalent steps, it is arguably equal quality compared to easy cache (in some cases easy cache ends up creating artifacts while spectrum always looks airbrushed), but it seems to be far faster, allowing me to fit up to around 45 steps while still being faster than Easy Cache.
 
@@ -28,15 +38,27 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * Reminder: You can't use the Flux 2/Mage Flow VAE Encode/Decode trick to reduce the lattice grid for transparent images as these VAEs do not support an alpha channel. It will turn the alpha channel pink/magenta.
 * Tested with up to 3 reference images. Worked perfectly fine.
 
-Random tests done by me with default spectrum node values (3060 12GB, 1 megapixel, 45 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**, Euler + Simple, Sage attention)
-| Ref. Imgs | Steps | Diffusion Time | Speed |
-| :--- | :---: | :---: | :---: |
-| 1 | 45 | ~21s | 2.08 it/s |
-| 2\* | 45 | ~26s | 1.73 it/s |
-| 3\* | 45 | ~30s | 1.49 it/s |
-| 1 | **25** | ~16s | 1.49 it/s |
-| 2\* | **25** | ~20s | 1.22 it/s |
-| 3\* | **25** | ~23s| 1.07 it/s |
+| Model / Test | Steps | Diffusion Time | Speed | Reference Images | Task | Resolution |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Base | 25 | ~37s | 1.50s/it | 1 | I2I | 1 MP |
+| Easy Cache | 25 | ~23s | 1.05it/s | 1 | I2I | 1 MP | 
+| Spectrum | 25 | ~16s | 1.48it/s | 1 | I2I | 1 MP |
+| Spectrum | **45** | ~21s | 2.08 it/s | 1 | I2I | 1 MP |
+
+<details>
+   <summary>Old tests with multiple Reference images tested.</summary>
+   
+   Random tests done by me with default spectrum node values (3060 12GB, 1 megapixel, 45 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**, Euler + Simple, Sage attention)
+   | Ref. Imgs | Steps | Diffusion Time | Speed |
+   | :--- | :---: | :---: | :---: |
+   | 1 | 45 | ~21s | 2.08 it/s |
+   | 2\* | 45 | ~26s | 1.73 it/s |
+   | 3\* | 45 | ~30s | 1.49 it/s |
+   | 1 | **25** | ~16s | 1.49 it/s |
+   | 2\* | **25** | ~20s | 1.22 it/s |
+   | 3\* | **25** | ~23s| 1.07 it/s |
+</details>
+
 
 *_You will feel a larger time gap as reference images increase due to the extra conditioning required._
 * All images were passed at 1 megapixel, and all tests were ran with spectrum.
@@ -51,11 +73,13 @@ Random tests done by me with default spectrum node values (3060 12GB, 1 megapixe
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 928x1664, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * Note the lattice shaped grid within the grass, as well as the degradation in outlines in things like hair as well as the degradation in the quality of the skin.
+* The image composition remains roughly the same for Spectrum as the base, at lower finer details.
 
 ![Ex2](./imgs/T2I(2).png)
 > A highly detailed, cinematic close-up shot of a pristine, rectangular white sign held steady in the center of the frame. The sign is held by two hands entering from the extreme periphery of the image, with the person's body remaining entirely out of frame to ensure they do not distract from the subject. On the sign, the word "Hello" is written in a large, expressive, and highly creative hand-lettered calligraphy font, featuring elegant flourishes and artistic swirls. The texture of the white cardstock is visible under soft, diffused studio lighting, creating gentle shadows and a sense of depth. The background is a soft-focus, minimalist bokeh of neutral pastel tones, ensuring all attention is drawn to the sharp, crisp typography of the sign
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 1328x1328, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
+* This example is just to show the potential gains from being able to fit higher steps.
 
 
 
