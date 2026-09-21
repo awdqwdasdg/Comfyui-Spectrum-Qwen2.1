@@ -93,7 +93,7 @@ Clone this folder into your ComfyUI `custom_nodes` directory:
 
 ```bash
 cd ComfyUI/custom_nodes
-https://github.com/awdqwdasdg/Comfyui-Spectrum-Qwen2.1.git
+git clone https://github.com/awdqwdasdg/Comfyui-Spectrum-Qwen2.1.git
 ```
 
 Restart ComfyUI. No extra Python dependencies (only PyTorch, which ComfyUI
