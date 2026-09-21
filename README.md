@@ -1,6 +1,18 @@
 # ComfyUI-Spectrum-QwenImage21
 
-**Spectrum sampling acceleration for Qwen-Image-2.1 in ComfyUI.**
+# **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
+
+Random tests done by me (3060 12GB, 928x1664, 25 steps, **diffusion time only**, fixed seed):
+* Base: ~49 seconds (1.97s/it)
+* Easy Cache: ~30 seconds (1.23s/it)
+* Spectrum (this): ~22 seconds (1.10it/s)
+* Spectrum (45 steps): ~28 seconds (1.56it/s)
+
+For equivalent steps, it is lower quality than easy cache, but it seems to be far faster, allowing me to fit up to 45 steps while still being faster than Easy Cache.
+* Seems to work fine on editing as well, though I haven't done thorough testing.
+That's all from me, everything after this is AI slop
+
+# **Spectrum sampling acceleration for Qwen-Image-2.1 in ComfyUI.**
 
 This custom node applies **Spectrum** — the training-free diffusion sampling
 accelerator from the paper *"Adaptive Spectral Feature Forecasting for
@@ -49,8 +61,7 @@ Clone (or unzip) this folder into your ComfyUI `custom_nodes` directory:
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/<you>/ComfyUI-Spectrum-QwenImage21.git
-# or unzip ComfyUI-Spectrum-QwenImage21.zip here
+https://github.com/awdqwdasdg/Comfyui-Spectrum-Qwen2.1.git
 ```
 
 Restart ComfyUI. No extra Python dependencies (only PyTorch, which ComfyUI
