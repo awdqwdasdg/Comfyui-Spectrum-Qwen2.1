@@ -10,7 +10,8 @@ Random tests done by me (3060 12GB, 928x1664, 25 steps, **diffusion time only**,
 
 For equivalent steps, it is lower quality than easy cache, but it seems to be far faster, allowing me to fit up to 45 steps while still being faster than Easy Cache.
 * Seems to work fine on editing as well, though I haven't done thorough testing.
-That's all from me, everything after this is AI slop
+
+That's all from me, everything after this is AI slop.
 
 # **Spectrum sampling acceleration for Qwen-Image-2.1 in ComfyUI.**
 
