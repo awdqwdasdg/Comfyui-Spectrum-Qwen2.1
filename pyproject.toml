@@ -1,0 +1,25 @@
+[project]
+name = "comfyui-spectrum-qwenimage21"
+version = "1.0.0"
+description = "Spectrum (arXiv 2603.01623) sampling acceleration for ComfyUI's native Qwen-Image-2.1 model."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+classifiers = [
+  "Operating System :: OS Independent",
+]
+authors = [
+  { name = "ComfyUI-Spectrum-QwenImage21 contributors" }
+]
+
+[project.urls]
+Repository = "https://github.com/example/ComfyUI-Spectrum-QwenImage21"
+
+[tool.comfy]
+PublisherId = "spectrum-qwenimage21"
+DisplayName = "ComfyUI-Spectrum-QwenImage21"
+Icon = ""
+includes = []
+
+[tool.setuptools]
+packages = ["spectrum_qwen21"]
