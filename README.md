@@ -1,5 +1,3 @@
-# ComfyUI-Spectrum-QwenImage21
-
 # **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
 
 # Quick T2I Notes
@@ -43,6 +41,8 @@ Random tests done by me with default spectrum node values (3060 12GB, 1 megapixe
 * I did not do in-depth testing against the base/easy cache as I did some light testing and found similar results to T2I
 
 That's all from me, everything after this is AI slop.
+
+# ComfyUI-Spectrum-QwenImage21
 
 # **Spectrum sampling acceleration for Qwen-Image-2.1 in ComfyUI.**
 
@@ -93,7 +93,7 @@ Clone this folder into your ComfyUI `custom_nodes` directory:
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/awdqwdasdg/Comfyui-Spectrum-Qwen2.1.git
+git clone https://github.com/awdqwdasdg/Comfyui-Spectrum-Qwen2.1
 ```
 
 Restart ComfyUI. No extra Python dependencies (only PyTorch, which ComfyUI
