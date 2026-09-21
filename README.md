@@ -2,14 +2,14 @@
 
 # **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
 
-Random tests done by me (3060 12GB, 928x1664, 25 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**):
+Random tests done by me with the default spectrum node values (3060 12GB, 928x1664, 25 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**, Euler + Simple):
 | Model / Test | Steps | CFG | Diffusion Time | Speed |
 | :--- | :---: | :---: | :---: | :---: |
 | Base | 25 | 1 | ~49s | 1.97s/it |
 | Easy Cache | 25 | 1 | ~30s | 1.23s/it |
 | Spectrum | 25 | 1 | ~22s | 1.10it/s |
 | Spectrum | **45** | 1 | ~28s | 1.56it/s |
-| Spectrum | 25 | 4 | ~45s | 2.81s/it |
+| Spectrum | 25 | **4** | ~45s | 2.81s/it |
 
 For equivalent steps, it is lower quality than easy cache, but it seems to be far faster, allowing me to fit up to around 45 steps while still being faster than Easy Cache.
 * Seems to work fine on editing as well, though I haven't done thorough testing.
