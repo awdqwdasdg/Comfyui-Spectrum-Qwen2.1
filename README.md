@@ -2,6 +2,9 @@
 
 # **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
 
+# Quick T2I Notes
+* Generations with spectrum often look very similar to the base step generation, but softer and more airbrushed. Good for quick prompt iteration.
+
 Random tests done by me with the default spectrum node values (3060 12GB, 928x1664, 25 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**, Euler + Simple, Sage attention):
 | Model / Test | Steps | CFG | Diffusion Time | Speed |
 | :--- | :---: | :---: | :---: | :---: |
@@ -11,12 +14,33 @@ Random tests done by me with the default spectrum node values (3060 12GB, 928x16
 | Spectrum | **45** | 1 | ~28s | 1.56it/s |
 | Spectrum | 25 | **4** | ~45s | 2.81s/it |
 
-* Easy cache values was ran with `reuse_threshold = 0.20`, `start_percent = 0.20`, and `end_percent = 0.70`
+* Easy cache was ran with `reuse_threshold = 0.20`, `start_percent = 0.20`, and `end_percent = 0.70`
 * Tests ran with sage attention, though fully compatible with comfy kitchen attention (add '--use-ck-attention' to your startup flags or use the `Model Attention Backend` node with `comfy kitchen attention` selected)
+* 45 steps was chosen as I found this is generally where quality becomes more consistent.
 
 For equivalent steps, it is arguably equal quality compared to easy cache (in some cases easy cache ends up creating artifacts while spectrum always looks airbrushed), but it seems to be far faster, allowing me to fit up to around 45 steps while still being faster than Easy Cache.
 
-Seems to work fine on editing as well, though I haven't done thorough testing with transparency and varying image inputs.
+# Quick I2I notes
+* Transparency still works fine, though I recommend following the prompting tip from the official [HuggingFace space](https://huggingface.co/spaces/Qwen/Qwen-Image-2.1)
+> For transparent image generation, use the following prompt format and replace xxxxx with your image description: `This is an RGBA image with transparency. xxxxx The image has alpha channel and the background is transparent.`
+* Reminder: You can't use the Flux 2/Mage Flow VAE Encode/Decode trick to reduce the lattice grid for transparent images as these VAEs do not support an alpha channel. It will turn the alpha channel pink/magenta.
+* Tested with up to 3 reference images. Worked perfectly fine.
+
+Random tests done by me with default spectrum node values (3060 12GB, 1 megapixel, 45 steps, **diffusion time only**, fixed seed, CFG 1, int8convrot, **SAMPLE SIZE 1**, Euler + Simple, Sage attention)
+| Ref. Imgs | Steps | Diffusion Time | Speed |
+| :--- | :---: | :---: | :---: |
+| 1 | 45 | ~21s | 2.08 it/s |
+| 2\* | 45 | ~26s | 1.73 it/s |
+| 3\* | 45 | ~30s | 1.49 it/s |
+| 1 | **25** | ~16s | 1.49 it/s |
+| 2\* | **25** | ~20s | 1.22 it/s |
+| 3\* | **25** | ~23s| 1.07 it/s |
+
+*_You will feel a larger time gap as reference images increase due to the extra conditioning required._
+* All images were passed at 1 megapixel, and all tests were ran with spectrum.
+* Tests ran with sage attention, though fully compatible with comfy kitchen attention (add '--use-ck-attention' to your startup flags or use the `Model Attention Backend` node with `comfy kitchen attention` selected)
+* 45 steps was chosen as I found this is generally where quality becomes more consistent.
+* I did not do in-depth testing against the base/easy cache as I did some light testing and found similar results to T2I
 
 That's all from me, everything after this is AI slop.
 
