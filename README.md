@@ -1,5 +1,8 @@
 # **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
 
+# Quick visual usage guide
+![temp1](./imgs/temp1.png)
+
 # Quick T2I Notes
 * Generations with spectrum often look very similar to the base step generation, but softer and more airbrushed. Good for quick prompt iteration.
 
