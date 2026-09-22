@@ -1,6 +1,9 @@
 # **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
 
-# Quick visual usage guide
+# What is this?
+A single custom node that shows ~2x speedup compared to base Qwen 2.1 image generation times for a slight quality hit. This is not a replacement for your choice of attention. All tests were done on an 12GB 3060.
+
+# Quickstart
 ![temp1](./imgs/temp1.png)
 
 * Simply insert the spectrum node before the `KSampler` node
@@ -30,7 +33,14 @@ Random tests done by me with the default spectrum node values (3060 12GB, 928x16
 | Spectrum | **45** | 1 | ~29s | 1.55it/s | T2I | 928x1664 |
 | Spectrum | **45** | 1 | ~34s | 1.32it/s | T2I | **1328x1328** |
 | Spectrum | 25 | **4** | ~45s | 2.81s/it | T2I | 928x1664 |
+| Base | 25 | 1 | ~2:53 | 6.95s/it | T2I | 2688x1536 |
+| Easy Cache | 25 | 1 | ~1:45 | 4.20s/it | T2I | 2688x1536 |
+| Spectrum | 25 | 1 | ~1:16 | 3.06s/it | T2I | 2688x1536 |
+| Base | **45** | 1 | ~5:25 | 7.23s/it | T2I | 2688x1536 |
+| Easy Cache | **45** | 1 | ~3:08 | 4.20s/it | T2I | 2688x1536 |
+| Spectrum | **45** | 1 | ~1:47 | 2.38s/it | T2I | 2688x1536 |
 
+* All 4k tests were added at the bottom
 
 * Easy cache was ran with `reuse_threshold = 0.20`, `start_percent = 0.20`, and `end_percent = 0.70`
 * Tests ran with sage attention, though fully compatible with comfy kitchen attention (add '--use-ck-attention' to your startup flags or use the `Model Attention Backend` node with `comfy kitchen attention` selected)
@@ -130,6 +140,67 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 1328x1328, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * This example is just to show the potential gains from being able to fit higher steps.
+
+**4k T2I test**
+![Ex5](./imgs/T2I-4k-25s.png)
+<details>
+<summary><b>Click to show individual pictures</b></summary>
+<br>
+
+<table width="100%">
+  <tr>
+    <td align="center" width="33%"><img src=".\imgs\T2I-4k-Base25.png" alt="Base" width="100%"></td>
+    <td align="center" width="33%"><img src=".\imgs\T2I-4k-Easy25.png" alt="Easy Cache" width="100%"></td>
+    <td align="center" width="33%"><img src=".\imgs\T2I-4k-Spectrum25.png" alt="Spectrum 25" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Base</b></td>
+    <td align="center"><b>Easy Cache</b></td>
+    <td align="center"><b>Spectrum</b></td>
+  </tr>
+</table>
+
+</details>
+<details>
+   <summary>Click to show prompt</summary>
+   > A wide-angle landscape shot captures a spacious, lived-in interior room with a balanced composition. In the center of the frame, an adult woman performs a graceful yoga tree pose, balanced on one leg with her hands joined above her head. She is dressed in a stylish, form-fitting athletic outfit consisting of high-waisted leggings and a coordinated cropped top. To the far right, a man is seated in a classic wooden armchair, leaning back slightly. He wears a textured brown tweed jacket over black slacks, a wide-brimmed fedora, and black-rimmed glasses. He holds a magazine open, clearly displaying the text "woaid enboiu!". Next to his chair stands a small wooden nightstand topped with a traditional desk lamp. Directly beneath the lamp, a navy blue ceramic mug sits, releasing a visible swirl of steam from a dark liquid inside. In the left third of the foreground, a golden retriever lies comfortably on its back with its paws in the air. Positioned immediately behind the dog are three geometric shapes: a blue cube sits on the floor, a green triangular prism stands upright beside it, and a red sphere is balanced precariously between the two. These three items are rendered with flat, matte textures and harsh, uniform lighting, lacking realistic shadows or depth. In the immediate center foreground, a short white marble table holds a clear cylindrical glass filled 70% with water and containing an opaque black straw. The background wall features a weathered poster secured with strips of grey duct tape, displaying the printed text "%&@^!* symbol test )*&(*". The room is bathed in soft, natural light coming from an unseen window, creating a domestic and serene atmosphere.
+   
+</details>
+
+* **25** steps, euler + simple, sage attention, easy cache values at 0.2,0.2,0.7 and spectrum at default values
+* Quality loss is visible in the texture of the tweed jacket, dog's fur, and the skin textures
+* Straw seems to be properly refracting within the glass, as well as the green triangular prism in all 3 images
+* Failed at generating an exclamation mark in every case
+
+![Ex6](./imgs/T2I-4k-45s.png)
+<details>
+<summary><b>Click to show individual pictures</b></summary>
+<br>
+
+<table width="100%">
+  <tr>
+    <td align="center" width="33%"><img src=".\imgs\T2I-4k-Base45.png" alt="Base" width="100%"></td>
+    <td align="center" width="33%"><img src=".\imgs\T2I-4k-Easy45.png" alt="Easy Cache" width="100%"></td>
+    <td align="center" width="33%"><img src=".\imgs\T2I-4k-Spectrum45.png" alt="Spectrum 25" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Base</b></td>
+    <td align="center"><b>Easy Cache</b></td>
+    <td align="center"><b>Spectrum</b></td>
+  </tr>
+</table>
+
+</details>
+<details>
+   <summary>Click to show prompt</summary>
+   > A wide-angle landscape shot captures a spacious, lived-in interior room with a balanced composition. In the center of the frame, an adult woman performs a graceful yoga tree pose, balanced on one leg with her hands joined above her head. She is dressed in a stylish, form-fitting athletic outfit consisting of high-waisted leggings and a coordinated cropped top. To the far right, a man is seated in a classic wooden armchair, leaning back slightly. He wears a textured brown tweed jacket over black slacks, a wide-brimmed fedora, and black-rimmed glasses. He holds a magazine open, clearly displaying the text "woaid enboiu!". Next to his chair stands a small wooden nightstand topped with a traditional desk lamp. Directly beneath the lamp, a navy blue ceramic mug sits, releasing a visible swirl of steam from a dark liquid inside. In the left third of the foreground, a golden retriever lies comfortably on its back with its paws in the air. Positioned immediately behind the dog are three geometric shapes: a blue cube sits on the floor, a green triangular prism stands upright beside it, and a red sphere is balanced precariously between the two. These three items are rendered with flat, matte textures and harsh, uniform lighting, lacking realistic shadows or depth. In the immediate center foreground, a short white marble table holds a clear cylindrical glass filled 70% with water and containing an opaque black straw. The background wall features a weathered poster secured with strips of grey duct tape, displaying the printed text "%&@^!* symbol test )*&(*". The room is bathed in soft, natural light coming from an unseen window, creating a domestic and serene atmosphere.
+   
+</details>
+
+* **45** steps, euler + simple, sage attention, easy cache values at 0.2,0.2,0.7 and spectrum at default values
+* Quality loss is visible in the texture of the tweed jacket, dog's fur, and the skin textures
+* Straw seems to be properly refracting within the glass, as well as the green triangular prism in all 3 images
+* Failed at generating an exclamation mark in every case (within the '%&@^!*' on the wall poster, and at the end of teh "enboiu!" string on the newspaper)
 
 
 
