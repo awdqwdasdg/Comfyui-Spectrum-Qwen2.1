@@ -89,7 +89,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 **T2I**
 ![Ex1](./imgs/T2I(1).png)
 <details>
-<summary><b>Click to show individual pictures</b></summary>
+<summary><b>Click to show individual pictures + more info</b></summary>
 <br>
 
 <table width="100%">
@@ -100,12 +100,14 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
     <td align="center" width="25%"><img src=".\imgs\T2I-Ex1-Spectrum45.png" alt="Spectrum 45" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><b>Base</b></td>
-    <td align="center"><b>Easy Cache</b></td>
-    <td align="center"><b>Spectrum (25)</b></td>
-    <td align="center"><b>Spectrum (45)</b></td>
+    <td align="center"><b>Base (~49s 1.97s/it)</b></td>
+    <td align="center"><b>Easy Cache (~30s 1.23s/it)</b></td>
+    <td align="center"><b>Spectrum (25) (~22s 1.10it/s)</b></td>
+    <td align="center"><b>Spectrum (45) (~28s 1.56it/s)</b></td>
   </tr>
 </table>
+
+* The time for each is simply the time it spent in the KSampler for more consistent comparisons, not a complete clip encode + KSampler + VAE decode process.
 
 </details>
 
@@ -117,7 +119,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 
 ![Ex2](./imgs/T2I(2).png)
 <details>
-<summary><b>Click to show individual pictures</b></summary>
+<summary><b>Click to show individual pictures + more info</b></summary>
 <br>
 
 <table width="100%">
@@ -128,23 +130,28 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
     <td align="center" width="25%"><img src=".\imgs\T2I-Ex2-Spectrum45.png" alt="Spectrum 45" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><b>Base</b></td>
-    <td align="center"><b>Easy Cache</b></td>
-    <td align="center"><b>Spectrum (25)</b></td>
-    <td align="center"><b>Spectrum (45)</b></td>
+    <td align="center"><b>Base (~57s 2.31s/it)</b></td>
+    <td align="center"><b>Easy Cache (~35s 1.44s/it)</b></td>
+    <td align="center"><b>Spectrum (25) (~26s 1.06s/it)</b></td>
+    <td align="center"><b>Spectrum (45) (~34s 1.32it/s)</b></td>
   </tr>
 </table>
 
+* The time for each is simply the time it spent in the KSampler for more consistent comparisons, not a complete clip encode + KSampler + VAE decode process.
+
 </details>
+
 > A highly detailed, cinematic close-up shot of a pristine, rectangular white sign held steady in the center of the frame. The sign is held by two hands entering from the extreme periphery of the image, with the person's body remaining entirely out of frame to ensure they do not distract from the subject. On the sign, the word "Hello" is written in a large, expressive, and highly creative hand-lettered calligraphy font, featuring elegant flourishes and artistic swirls. The texture of the white cardstock is visible under soft, diffused studio lighting, creating gentle shadows and a sense of depth. The background is a soft-focus, minimalist bokeh of neutral pastel tones, ensuring all attention is drawn to the sharp, crisp typography of the sign
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 1328x1328, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * This example is just to show the potential gains from being able to fit higher steps.
 
+
+
 **4k T2I test**
 ![Ex5](./imgs/T2I-4k-25s.png)
 <details>
-<summary><b>Click to show individual pictures</b></summary>
+<summary><b>Click to show individual pictures + more info</b></summary>
 <br>
 
 <table width="100%">
@@ -154,17 +161,19 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
     <td align="center" width="33%"><img src=".\imgs\T2I-4k-Spectrum25.png" alt="Spectrum 25" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><b>Base</b></td>
-    <td align="center"><b>Easy Cache</b></td>
-    <td align="center"><b>Spectrum</b></td>
+    <td align="center"><b>Base (~2:53 6.95s/it)</b></td>
+    <td align="center"><b>Easy Cache (~1:45 4.20s/it)</b></td>
+    <td align="center"><b>Spectrum (~1:16 3.06s/it)</b></td>
   </tr>
 </table>
+
+* The time for each is simply the time it spent in the KSampler for more consistent comparisons, not a complete clip encode + KSampler + VAE decode process.
 
 </details>
 <details>
    <summary>Click to show prompt</summary>
    
-   > A wide-angle landscape shot captures a spacious, lived-in interior room with a balanced composition. In the center of the frame, an adult woman performs a graceful yoga tree pose, balanced on one leg with her hands joined above her head. She is dressed in a stylish, form-fitting athletic outfit consisting of high-waisted leggings and a coordinated cropped top. To the far right, a man is seated in a classic wooden armchair, leaning back slightly. He wears a textured brown tweed jacket over black slacks, a wide-brimmed fedora, and black-rimmed glasses. He holds a magazine open, clearly displaying the text "woaid enboiu!". Next to his chair stands a small wooden nightstand topped with a traditional desk lamp. Directly beneath the lamp, a navy blue ceramic mug sits, releasing a visible swirl of steam from a dark liquid inside. In the left third of the foreground, a golden retriever lies comfortably on its back with its paws in the air. Positioned immediately behind the dog are three geometric shapes: a blue cube sits on the floor, a green triangular prism stands upright beside it, and a red sphere is balanced precariously between the two. These three items are rendered with flat, matte textures and harsh, uniform lighting, lacking realistic shadows or depth. In the immediate center foreground, a short white marble table holds a clear cylindrical glass filled 70% with water and containing an opaque black straw. The background wall features a weathered poster secured with strips of grey duct tape, displaying the printed text "%&@^!* symbol test )*&(*". The room is bathed in soft, natural light coming from an unseen window, creating a domestic and serene atmosphere.
+   > A wide-angle landscape shot captures a spacious, lived-in interior room with a balanced composition. In the center of the frame, an adult woman performs a graceful yoga tree pose, balanced on one leg with her hands joined above her head. She is dressed in a stylish, form-fitting athletic outfit consisting of high-waisted leggings and a coordinated cropped top. To the far right, a man is seated in a classic wooden armchair, leaning back slightly. He wears a textured brown tweed jacket over black slacks, a wide-brimmed fedora, and black-rimmed glasses. He holds a magazine open, clearly displaying the text "woaid enboiu!". Next to his chair stands a small wooden nightstand topped with a traditional desk lamp. Directly beneath the lamp, a navy blue ceramic mug sits, releasing a visible swirl of steam from a dark liquid inside. In the left third of the foreground, a golden retriever lies comfortably on its back with its paws in the air. Positioned immediately behind the dog are three geometric shapes: a blue cube sits on the floor, a green triangular prism stands upright beside it, and a red sphere is balanced precariously between the two. These three items are rendered with flat, matte textures and harsh, uniform lighting, lacking realistic shadows or depth. In the immediate center foreground, a short white marble table holds a clear cylindrical glass filled 70% with water and containing an opaque black straw. The background wall features a weathered poster secured with strips of grey duct tape, displaying the printed text "%&@^!* symbol test )\*&(\*". The room is bathed in soft, natural light coming from an unseen window, creating a domestic and serene atmosphere.
    
 </details>
 
@@ -175,7 +184,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 
 ![Ex6](./imgs/T2I-4k-45s.png)
 <details>
-<summary><b>Click to show individual pictures</b></summary>
+<summary><b>Click to show individual pictures + more info</b></summary>
 <br>
 
 <table width="100%">
@@ -185,17 +194,19 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
     <td align="center" width="33%"><img src=".\imgs\T2I-4k-Spectrum45.png" alt="Spectrum 25" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><b>Base</b></td>
-    <td align="center"><b>Easy Cache</b></td>
-    <td align="center"><b>Spectrum</b></td>
+    <td align="center"><b>Base (~5:25 7.23s/it)</b></td>
+    <td align="center"><b>Easy Cache (~3.08 4.20s/it)</b></td>
+    <td align="center"><b>Spectrum (~1:47 2.38s/it)</b></td>
   </tr>
 </table>
+
+* The time for each is simply the time it spent in the KSampler for more consistent comparisons, not a complete clip encode + KSampler + VAE decode process.
 
 </details>
 <details>
    <summary>Click to show prompt</summary>
    
-   > A wide-angle landscape shot captures a spacious, lived-in interior room with a balanced composition. In the center of the frame, an adult woman performs a graceful yoga tree pose, balanced on one leg with her hands joined above her head. She is dressed in a stylish, form-fitting athletic outfit consisting of high-waisted leggings and a coordinated cropped top. To the far right, a man is seated in a classic wooden armchair, leaning back slightly. He wears a textured brown tweed jacket over black slacks, a wide-brimmed fedora, and black-rimmed glasses. He holds a magazine open, clearly displaying the text "woaid enboiu!". Next to his chair stands a small wooden nightstand topped with a traditional desk lamp. Directly beneath the lamp, a navy blue ceramic mug sits, releasing a visible swirl of steam from a dark liquid inside. In the left third of the foreground, a golden retriever lies comfortably on its back with its paws in the air. Positioned immediately behind the dog are three geometric shapes: a blue cube sits on the floor, a green triangular prism stands upright beside it, and a red sphere is balanced precariously between the two. These three items are rendered with flat, matte textures and harsh, uniform lighting, lacking realistic shadows or depth. In the immediate center foreground, a short white marble table holds a clear cylindrical glass filled 70% with water and containing an opaque black straw. The background wall features a weathered poster secured with strips of grey duct tape, displaying the printed text "%&@^!* symbol test )*&(*". The room is bathed in soft, natural light coming from an unseen window, creating a domestic and serene atmosphere.
+   > A wide-angle landscape shot captures a spacious, lived-in interior room with a balanced composition. In the center of the frame, an adult woman performs a graceful yoga tree pose, balanced on one leg with her hands joined above her head. She is dressed in a stylish, form-fitting athletic outfit consisting of high-waisted leggings and a coordinated cropped top. To the far right, a man is seated in a classic wooden armchair, leaning back slightly. He wears a textured brown tweed jacket over black slacks, a wide-brimmed fedora, and black-rimmed glasses. He holds a magazine open, clearly displaying the text "woaid enboiu!". Next to his chair stands a small wooden nightstand topped with a traditional desk lamp. Directly beneath the lamp, a navy blue ceramic mug sits, releasing a visible swirl of steam from a dark liquid inside. In the left third of the foreground, a golden retriever lies comfortably on its back with its paws in the air. Positioned immediately behind the dog are three geometric shapes: a blue cube sits on the floor, a green triangular prism stands upright beside it, and a red sphere is balanced precariously between the two. These three items are rendered with flat, matte textures and harsh, uniform lighting, lacking realistic shadows or depth. In the immediate center foreground, a short white marble table holds a clear cylindrical glass filled 70% with water and containing an opaque black straw. The background wall features a weathered poster secured with strips of grey duct tape, displaying the printed text "%&@^!* symbol test )\*&(\*". The room is bathed in soft, natural light coming from an unseen window, creating a domestic and serene atmosphere.
    
 </details>
 
@@ -209,7 +220,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 **I2I**
 ![Ex3](./imgs/I2I(1).png)
 <details>
-<summary><b>Click to show individual pictures</b></summary>
+<summary><b>Click to show individual pictures + more info</b></summary>
 <br>
 
 <table width="100%">
@@ -220,12 +231,14 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
     <td align="center" width="25%"><img src=".\imgs\I2I-Ex1-Spectrum45.png" alt="Spectrum 45" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><b>Base</b></td>
-    <td align="center"><b>Easy Cache</b></td>
-    <td align="center"><b>Spectrum (25)</b></td>
-    <td align="center"><b>Spectrum (45)</b></td>
+    <td align="center"><b>Base (~37s 1.50s/it)</b></td>
+    <td align="center"><b>Easy Cache (~23s 1.05it/s)</b></td>
+    <td align="center"><b>Spectrum (25) (~16s 1.48it/s)</b></td>
+    <td align="center"><b>Spectrum (45) (~21s 2.08 it/s)</b></td>
   </tr>
 </table>
+
+* The time for each is simply the time it spent in the KSampler for more consistent comparisons, not a complete clip encode + KSampler + VAE decode process.
 
 </details>
 
