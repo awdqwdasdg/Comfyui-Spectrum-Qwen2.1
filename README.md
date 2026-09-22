@@ -3,6 +3,14 @@
 # Quick visual usage guide
 ![temp1](./imgs/temp1.png)
 
+* Simply insert the spectrum node before the `KSampler` node
+
+Basic example workflows provided
+
+![T2I Workflow](./examples/T2I-Workflow.json)
+
+![I2I Workflow](./examples/I2I-Workflow.json)
+
 # Quick T2I Notes
 * Generations with spectrum often look very similar to the base step generation, but softer and more airbrushed. Good for quick prompt iteration.
 
