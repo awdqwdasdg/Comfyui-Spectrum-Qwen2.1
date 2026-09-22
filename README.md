@@ -70,6 +70,27 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 # Quick Examples
 **T2I**
 ![Ex1](./imgs/T2I(1).png)
+<details>
+<summary><b>Click to show individual pictures</b></summary>
+<br>
+
+<table width="100%">
+  <tr>
+    <td align="center" width="25%"><img src=".\imgs\T2I-Ex1-Base.png" alt="Base" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\T2I-Ex1-EzCache.png" alt="Easy Cache" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\T2I-Ex1-Spectrum25.png" alt="Spectrum 25" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\T2I-Ex1-Spectrum45.png" alt="Spectrum 45" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Base</b></td>
+    <td align="center"><b>Easy Cache</b></td>
+    <td align="center"><b>Spectrum (25)</b></td>
+    <td align="center"><b>Spectrum (45)</b></td>
+  </tr>
+</table>
+
+</details>
+
 > Cinematic full-body portrait of a stunningly beautiful Chinese woman standing gracefully in a sun-drenched clearing amidst a vast, undulating field of tall, golden-green meadow grass. She is wearing a delicate, lightweight summer sundress with a subtle white and pale light-blue plaid pattern, featuring thin, elegant spaghetti straps that rest gently on her shoulders. Her long, lustrous, raven-black hair flows freely, caught in a gentle breeze, dancing around her face and shoulders. She is looking directly into the camera lens with a warm, radiant, and captivating smile, her eyes sparkling with life. The background features a dense, soft-focus line of lush, verdant trees under a bright, hazy sky, creating a beautiful bokeh effect. The lighting is soft, warm, and ethereal, reminiscent of the golden hour, casting a gentle glow on her skin and illuminating the individual blades of grass.
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 928x1664, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
@@ -77,6 +98,26 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * The image composition remains roughly the same for Spectrum (25) as the base, at lower finer details.
 
 ![Ex2](./imgs/T2I(2).png)
+<details>
+<summary><b>Click to show individual pictures</b></summary>
+<br>
+
+<table width="100%">
+  <tr>
+    <td align="center" width="25%"><img src=".\imgs\T2I-Ex2-Base.png" alt="Base" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\T2I-Ex2-EzCache.png" alt="Easy Cache" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\T2I-Ex2-Spectrum25.png" alt="Spectrum 25" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\T2I-Ex2-Spectrum45.png" alt="Spectrum 45" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Base</b></td>
+    <td align="center"><b>Easy Cache</b></td>
+    <td align="center"><b>Spectrum (25)</b></td>
+    <td align="center"><b>Spectrum (45)</b></td>
+  </tr>
+</table>
+
+</details>
 > A highly detailed, cinematic close-up shot of a pristine, rectangular white sign held steady in the center of the frame. The sign is held by two hands entering from the extreme periphery of the image, with the person's body remaining entirely out of frame to ensure they do not distract from the subject. On the sign, the word "Hello" is written in a large, expressive, and highly creative hand-lettered calligraphy font, featuring elegant flourishes and artistic swirls. The texture of the white cardstock is visible under soft, diffused studio lighting, creating gentle shadows and a sense of depth. The background is a soft-focus, minimalist bokeh of neutral pastel tones, ensuring all attention is drawn to the sharp, crisp typography of the sign
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 1328x1328, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
@@ -86,6 +127,27 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 
 **I2I**
 ![Ex3](./imgs/I2I(1).png)
+<details>
+<summary><b>Click to show individual pictures</b></summary>
+<br>
+
+<table width="100%">
+  <tr>
+    <td align="center" width="25%"><img src=".\imgs\I2I-Ex1-Base.png" alt="Base" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\I2I-Ex1-EzCache.png" alt="Easy Cache" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\I2I-Ex1-Spectrum25.png" alt="Spectrum 25" width="100%"></td>
+    <td align="center" width="25%"><img src=".\imgs\I2I-Ex1-Spectrum45.png" alt="Spectrum 45" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Base</b></td>
+    <td align="center"><b>Easy Cache</b></td>
+    <td align="center"><b>Spectrum (25)</b></td>
+    <td align="center"><b>Spectrum (45)</b></td>
+  </tr>
+</table>
+
+</details>
+
 > Replace the text "Hello" on the white card with its Chinese translation "你好", and render the new text in solid black color. The replacement "你好" must be set at the same large display size, centered on the white card in the same position as the original "Hello", using an elegant flowing brush-calligraphy script with graceful sweeping swashes and flourishes that mirror the original cursive lettering's dynamic connected strokes, and it must retain the same raised three-dimensional paper-cut depth effect with soft subtle drop shadows on the card surface, now rendered in matte black instead of white. Preserve all non-text visual elements exactly as they appear: the two hands gripping the card at the left and right edges, the plain white matte card, and the soft pastel beige-pink-gray gradient background, with unchanged lighting, perspective, and photographic quality.
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 1 MP (1024x1024), Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
