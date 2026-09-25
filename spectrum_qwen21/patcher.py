@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import threading
 from typing import Any, Callable
 
 import torch
@@ -29,7 +30,31 @@ def create_spectrum_wrapper(
     The returned function carries a ``root_state`` attribute for
     introspection (used by the test-suite).
     """
+    # MultiGPU CFG Split runs cond/uncond on different GPUs in parallel
+    # threads, all sharing this one closure. Keep one independent state per
+    # device so the threads never reset or overwrite each other's history.
+    roots: dict[str, SpectrumRootState] = {}
+    roots_lock = threading.Lock()
     root = SpectrumRootState(config=config)
+    roots["__default__"] = root
+
+    def _get_root(device: Any) -> SpectrumRootState:
+        key = str(device) if device is not None else "__default__"
+        with roots_lock:
+            r = roots.get(key)
+            if r is None:
+                if key != "__default__" and not roots["__default__"].branch_states and len(roots) == 1:
+                    r = roots["__default__"]
+                else:
+                    r = SpectrumRootState(config=config)
+                roots[key] = r
+            return r
+
+    def _sigmas_signature(sigmas: torch.Tensor) -> tuple:
+        # Value-based run fingerprint. MultiGPU CFG Split hands each
+        # non-primary GPU a fresh sample_sigmas.to(device) copy on every
+        # call, so id(sigmas) changes every step and must not be used.
+        return tuple(round(v, 6) for v in sigmas.detach().float().cpu().tolist())
 
     def spectrum_diffusion_model_wrapper(
         executor: Any,
@@ -62,13 +87,17 @@ def create_spectrum_wrapper(
         if getattr(model, "gradient_checkpointing", False):
             return executor(*args_tuple, **kwargs)
 
+        root = _get_root(
+            transformer_options.get("multigpu_thread_device", x.device)
+        )
         step_index = find_step_index(sigmas, timesteps)
         total_steps = max(1, sigmas.numel() - 1)
+        sigmas_sig = _sigmas_signature(sigmas)
 
         # New-run detection.
         if (
             root.last_sigmas_id is not None
-            and root.last_sigmas_id != id(sigmas)
+            and root.last_sigmas_id != sigmas_sig
         ) or (
             root.last_total_steps is not None
             and root.last_total_steps != total_steps
@@ -162,7 +191,7 @@ def create_spectrum_wrapper(
         finally:
             note_decision(branch, actual, reason, config)
             root.last_step_index = step_index
-            root.last_sigmas_id = id(sigmas)
+            root.last_sigmas_id = sigmas_sig
             root.last_total_steps = total_steps
 
         # Run completion: log a summary and release anchor memory.
@@ -190,6 +219,7 @@ def create_spectrum_wrapper(
         return out
 
     spectrum_diffusion_model_wrapper.root_state = root  # type: ignore[attr-defined]
+    spectrum_diffusion_model_wrapper.roots = roots  # type: ignore[attr-defined]
     return spectrum_diffusion_model_wrapper
 
 
