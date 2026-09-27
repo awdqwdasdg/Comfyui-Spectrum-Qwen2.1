@@ -1,8 +1,8 @@
-# **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
-
+**Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
+---
 
 # **Notice**
-Any versions of this custom node obtained before 2026, September 27th were wrongfully bundled with an MIT license. The license has since been corrected to GPL 3.0.
+Any versions of this custom node obtained before 2026-09-27 were wrongfully bundled with an MIT license. The license has since been corrected to GPL 3.0, and attributions have been added to the respective files.
 
 # What is this?
 A single custom node that shows ~2x speedup compared to base Qwen 2.1 image generation times for a slight quality hit. This is not a replacement for your choice of attention. All tests were done on an 12GB 3060.
@@ -89,8 +89,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * 45 steps was chosen as I found this is generally where quality becomes more consistent.
 * I did not do in-depth testing against the base/easy cache as I did some light testing and found similar results to T2I
 
-# Quick Examples
-**T2I**
+# T2I Examples
 ![Ex1](./imgs/T2I(1).png)
 <details>
 <summary><b>Click to show individual pictures + more info</b></summary>
@@ -120,7 +119,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * 928x1664, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * Note the lattice shaped grid within the grass (this seems to be an issue with the VAE), as well as the degradation in outlines in things like hair as well as the degradation in the quality of the skin.
 * The image composition remains roughly the same for Spectrum (25) as the base, at lower finer details.
-
+---
 ![Ex2](./imgs/T2I(2).png)
 <details>
 <summary><b>Click to show individual pictures + more info</b></summary>
@@ -149,8 +148,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 1328x1328, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * This example is just to show the potential gains from being able to fit higher steps.
-
-
+---
 
 **4k T2I test**
 ![Ex5](./imgs/T2I-4k-25s.png)
@@ -185,7 +183,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * Quality loss is visible in the texture of the tweed jacket, dog's fur, and the skin textures
 * Straw seems to be properly refracting within the glass, as well as the green triangular prism in all 3 images
 * Failed at generating an exclamation mark in every case
-
+---
 ![Ex6](./imgs/T2I-4k-45s.png)
 <details>
 <summary><b>Click to show individual pictures + more info</b></summary>
@@ -218,10 +216,9 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * Quality loss is visible in the texture of the tweed jacket, dog's fur, and the skin textures
 * Straw seems to be properly refracting within the glass, as well as the green triangular prism in all 3 images
 * Failed at generating an exclamation mark in every case (within the '%&@^!*' on the wall poster, and at the end of teh "enboiu!" string on the newspaper)
+---
 
-
-
-**I2I**
+# I2I Examples
 ![Ex3](./imgs/I2I(1).png)
 <details>
 <summary><b>Click to show individual pictures + more info</b></summary>
@@ -251,7 +248,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * 1 MP (1024x1024), Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * Used the Spectrum (45) result from the second T2I example as the starting image.
 * I recommend cropping input images to multiples of 64 pixels.
-
+---
 ![Ex4](./imgs/I2I-ex2-result.png)
 <details>
    <summary> Reference images used.</summary>
@@ -313,8 +310,7 @@ Parts of this repository are derived from existing open-source software:
 
 As required by GPLv3 §5(a), this repository carries prominent notice of these structural modifications.
 
-
-That's all from me, everything after this is AI slop.
+---
 
 # ComfyUI-Spectrum-QwenImage21
 
