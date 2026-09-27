@@ -2,7 +2,11 @@
 ---
 
 # **Notice**
-Any versions of this custom node obtained before 2026-09-27 were wrongfully bundled with an MIT license. The license has since been corrected to GPL 3.0, and attributions have been added to the respective files.
+Versions published prior to the licensing correction merged on
+2026-09-27 were incorrectly presented as MIT-licensed. To the extent
+those versions contain GPL-derived material, they should not be treated
+as MIT-licensed. The repository is now distributed under GPL-3.0.
+Corrections were applied with commit `3041e5db19fa23ec8bbee2569916ae7a72422b2a`.
 
 # What is this?
 A single custom node that shows ~2x speedup compared to base Qwen 2.1 image generation times for a slight quality hit. This is not a replacement for your choice of attention. All tests were done on an 12GB 3060.
@@ -490,7 +494,7 @@ Parts of this repository are derived from existing open-source software:
 * **`xmarre/ComfyUI-Spectrum-MiniMax-H3`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.
 * **`xmarre/ComfyUI-Spectrum-WAN-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper.
 * **`xmarre/ComfyUI-Spectrum-Qwen-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper.
-* **Modifications:** Adapted and modified by awdqwdasdg in 2026 using GLM 5.3 to support Qwen-Image-2.1.
+* **Modifications:** Adapted and modified by awdqwdasdg in 2026-09-21 using GLM 5.3 to support Qwen-Image-2.1 with licensing and provenance notices corrected on 2026-09-27.
 
 As required by GPLv3 §5(a), this repository carries prominent notice of these structural modifications.
 
