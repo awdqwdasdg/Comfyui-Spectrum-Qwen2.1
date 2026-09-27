@@ -298,18 +298,6 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 
 Diffusion time: 51s (2.07s/it)
 
-
-## Provenance & Attribution
-
-Parts of this repository are derived from existing open-source software:
-
-* **`xmarre/ComfyUI-Spectrum-MiniMax-H3`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.
-* **`xmarre/ComfyUI-Spectrum-WAN-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper.
-* **`xmarre/ComfyUI-Spectrum-Qwen-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper.
-* **Modifications:** Adapted and modified by awdqwdasdg in 2026 using GLM 5.3 to support Qwen-Image-2.1.
-
-As required by GPLv3 §5(a), this repository carries prominent notice of these structural modifications.
-
 ---
 
 # ComfyUI-Spectrum-QwenImage21
@@ -494,6 +482,17 @@ Qwen-Image-2.1 transformer:
 ```bash
 python -m unittest discover -s tests -v
 ```
+
+## Provenance & Attribution
+
+Parts of this repository are derived from existing open-source software:
+
+* **`xmarre/ComfyUI-Spectrum-MiniMax-H3`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.
+* **`xmarre/ComfyUI-Spectrum-WAN-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper.
+* **`xmarre/ComfyUI-Spectrum-Qwen-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper.
+* **Modifications:** Adapted and modified by awdqwdasdg in 2026 using GLM 5.3 to support Qwen-Image-2.1.
+
+As required by GPLv3 §5(a), this repository carries prominent notice of these structural modifications.
 
 ## Credits
 
