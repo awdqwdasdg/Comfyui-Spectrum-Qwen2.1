@@ -1,3 +1,13 @@
+# ==============================================================================
+# Portions of this file are modified from the following projects:
+#   - [xmarre/ComfyUI-Spectrum-MiniMax-H3] (https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3)
+#   - [xmarre/ComfyUI-Spectrum-WAN-Proper] (https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper)
+#   - [xmarre/ComfyUI-Spectrum-Qwen-Proper] (https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper)
+#
+# Modifications made by awdqwdasdg in 2026.
+# Licensed under the GNU General Public License v3.0.
+# ==============================================================================
+
 from __future__ import annotations
 
 # Key under which the DIFFUSION_MODEL wrapper is registered in
