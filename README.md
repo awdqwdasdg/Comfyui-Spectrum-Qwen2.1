@@ -1,5 +1,9 @@
 # **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
 
+
+# **Notice**
+Any versions of this custom node obtained before 2026, September 27th were wrongfully bundled with an MIT license. The license has since been corrected to GPL 3.0.
+
 # What is this?
 A single custom node that shows ~2x speedup compared to base Qwen 2.1 image generation times for a slight quality hit. This is not a replacement for your choice of attention. All tests were done on an 12GB 3060.
 
@@ -298,6 +302,18 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 Diffusion time: 51s (2.07s/it)
 
 
+## Provenance & Attribution
+
+Parts of this repository are derived from existing open-source software:
+
+* **`xmarre/ComfyUI-Spectrum-MiniMax-H3`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.
+* **`xmarre/ComfyUI-Spectrum-WAN-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper.
+* **`xmarre/ComfyUI-Spectrum-Qwen-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper.
+* **Modifications:** Adapted and modified by awdqwdasdg in 2026 using GLM 5.3 to support Qwen-Image-2.1.
+
+As required by GPLv3 §5(a), this repository carries prominent notice of these structural modifications.
+
+
 That's all from me, everything after this is AI slop.
 
 # ComfyUI-Spectrum-QwenImage21
@@ -490,7 +506,9 @@ python -m unittest discover -s tests -v
   Diffusion Sampling Acceleration"* (arXiv:2603.01623, CVPR 2026).
 - Qwen-Image-2.1 model & ComfyUI integration: Qwen team and the ComfyUI
   contributors (`comfy/ldm/qwen_image21`).
-- Community reference ports that informed the ComfyUI integration
-  patterns: `xmarre/ComfyUI-Spectrum-MiniMax-H3`, `xmarre/ComfyUI-Spectrum-WAN-Proper`, `xmarre/ComfyUI-Spectrum-Qwen-Proper`.
+- GLM 5.3 was pointed to `xmarre/ComfyUI-Spectrum-MiniMax-H3` as a reference, but also viewed and based work off of `xmarre/ComfyUI-Spectrum-WAN-Proper` and `xmarre/ComfyUI-Spectrum-Qwen-Proper`: 
+  * [xmarre/ComfyUI-Spectrum-MiniMax-H3](https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3) 
+  * [xmarre/ComfyUI-Spectrum-WAN-Proper](https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper)
+  * [xmarre/ComfyUI-Spectrum-Qwen-Proper](https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper)
 
 License: GPL-3.0
