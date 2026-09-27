@@ -491,7 +491,6 @@ python -m unittest discover -s tests -v
 - Qwen-Image-2.1 model & ComfyUI integration: Qwen team and the ComfyUI
   contributors (`comfy/ldm/qwen_image21`).
 - Community reference ports that informed the ComfyUI integration
-  patterns: `xmarre/ComfyUI-Spectrum-*`.
+  patterns: `xmarre/ComfyUI-Spectrum-MiniMax-H3`, `xmarre/ComfyUI-Spectrum-WAN-Proper`, `xmarre/ComfyUI-Spectrum-Qwen-Proper`.
 
-License: MIT (this implementation). The underlying method and model remain
-under their respective licenses.
+License: GPL-3.0
