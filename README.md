@@ -491,9 +491,9 @@ python -m unittest discover -s tests -v
 
 Parts of this repository are derived from existing open-source software:
 
-* **`xmarre/ComfyUI-Spectrum-MiniMax-H3`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.
-* **`xmarre/ComfyUI-Spectrum-WAN-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper.
-* **`xmarre/ComfyUI-Spectrum-Qwen-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper.
+* **`xmarre/ComfyUI-Spectrum-MiniMax-H3`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` and `nodes.py` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3.
+* **`xmarre/ComfyUI-Spectrum-WAN-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` and `nodes.py` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper.
+* **`xmarre/ComfyUI-Spectrum-Qwen-Proper`** (Licensed under GPLv3): Core logic within `spectrum_qwen21/` and `nodes.py` is heavily based on the implementation found in https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper.
 * **Modifications:** Adapted and modified by awdqwdasdg in 2026-09-21 using GLM 5.3 to support Qwen-Image-2.1 with licensing and provenance notices corrected on 2026-09-27.
 
 As required by GPLv3 §5(a), this repository carries prominent notice of these structural modifications.
