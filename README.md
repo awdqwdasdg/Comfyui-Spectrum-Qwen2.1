@@ -1,4 +1,12 @@
-# **Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
+**Disclaimer: This was fully vibe coded in one shot by GLM-5.3**
+---
+
+# **Notice**
+Versions published prior to the licensing correction merged on
+2026-09-27 were incorrectly presented as MIT-licensed. To the extent
+those versions contain GPL-derived material, they should not be treated
+as MIT-licensed. The repository is now distributed under GPL-3.0.
+Corrections were applied with commit `3041e5db19fa23ec8bbee2569916ae7a72422b2a`.
 
 # What is this?
 A single custom node that shows ~2x speedup compared to base Qwen 2.1 image generation times for a slight quality hit. This is not a replacement for your choice of attention. All tests were done on an 12GB 3060.
@@ -85,8 +93,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * 45 steps was chosen as I found this is generally where quality becomes more consistent.
 * I did not do in-depth testing against the base/easy cache as I did some light testing and found similar results to T2I
 
-# Quick Examples
-**T2I**
+# T2I Examples
 ![Ex1](./imgs/T2I(1).png)
 <details>
 <summary><b>Click to show individual pictures + more info</b></summary>
@@ -116,7 +123,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * 928x1664, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * Note the lattice shaped grid within the grass (this seems to be an issue with the VAE), as well as the degradation in outlines in things like hair as well as the degradation in the quality of the skin.
 * The image composition remains roughly the same for Spectrum (25) as the base, at lower finer details.
-
+---
 ![Ex2](./imgs/T2I(2).png)
 <details>
 <summary><b>Click to show individual pictures + more info</b></summary>
@@ -145,8 +152,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * Left to right: Base, Easy cache, Spectrum (25), Spectrum (45)
 * 1328x1328, Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * This example is just to show the potential gains from being able to fit higher steps.
-
-
+---
 
 **4k T2I test**
 ![Ex5](./imgs/T2I-4k-25s.png)
@@ -181,7 +187,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * Quality loss is visible in the texture of the tweed jacket, dog's fur, and the skin textures
 * Straw seems to be properly refracting within the glass, as well as the green triangular prism in all 3 images
 * Failed at generating an exclamation mark in every case
-
+---
 ![Ex6](./imgs/T2I-4k-45s.png)
 <details>
 <summary><b>Click to show individual pictures + more info</b></summary>
@@ -214,10 +220,9 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * Quality loss is visible in the texture of the tweed jacket, dog's fur, and the skin textures
 * Straw seems to be properly refracting within the glass, as well as the green triangular prism in all 3 images
 * Failed at generating an exclamation mark in every case (within the '%&@^!*' on the wall poster, and at the end of teh "enboiu!" string on the newspaper)
+---
 
-
-
-**I2I**
+# I2I Examples
 ![Ex3](./imgs/I2I(1).png)
 <details>
 <summary><b>Click to show individual pictures + more info</b></summary>
@@ -247,7 +252,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 * 1 MP (1024x1024), Euler/Simple, Sage Attention, CFG 1, Easy cache values at `.2, .2, .7`, 25 steps unless specified otherwise.
 * Used the Spectrum (45) result from the second T2I example as the starting image.
 * I recommend cropping input images to multiples of 64 pixels.
-
+---
 ![Ex4](./imgs/I2I-ex2-result.png)
 <details>
    <summary> Reference images used.</summary>
@@ -297,8 +302,7 @@ For equivalent steps, it is arguably equal quality compared to easy cache (in so
 
 Diffusion time: 51s (2.07s/it)
 
-
-That's all from me, everything after this is AI slop.
+---
 
 # ComfyUI-Spectrum-QwenImage21
 
@@ -483,6 +487,21 @@ Qwen-Image-2.1 transformer:
 python -m unittest discover -s tests -v
 ```
 
+## Provenance & Attribution
+
+This implementation was generated/adapted for Qwen-Image-2.1 using GLM-5.3
+after [xmarre/ComfyUI-Spectrum-MiniMax-H3](https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3)
+was supplied as a reference. The generation tool also inspected
+[xmarre/ComfyUI-Spectrum-Qwen-Proper](https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper)
+and [xmarre/ComfyUI-Spectrum-WAN-Proper](https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper).
+
+Portions of the resulting source are derived from/adapted from GPL-covered
+xmarre Spectrum implementations. The exact per-file lineage cannot be fully
+reconstructed from the available AI tool traces.
+
+Adapted for Qwen-Image-2.1 by awdqwdasdg; initial publication 2026-09-21.
+Licensing/provenance notices corrected 2026-09-27.
+
 ## Credits
 
 - Spectrum method: Jiaqi Han, Juntong Shi, Puheng Li, Haotian Ye, Qiushan
@@ -490,7 +509,9 @@ python -m unittest discover -s tests -v
   Diffusion Sampling Acceleration"* (arXiv:2603.01623, CVPR 2026).
 - Qwen-Image-2.1 model & ComfyUI integration: Qwen team and the ComfyUI
   contributors (`comfy/ldm/qwen_image21`).
-- Community reference ports that informed the ComfyUI integration
-  patterns: `xmarre/ComfyUI-Spectrum-MiniMax-H3`, `xmarre/ComfyUI-Spectrum-WAN-Proper`, `xmarre/ComfyUI-Spectrum-Qwen-Proper`.
+- GLM 5.3 was pointed to `xmarre/ComfyUI-Spectrum-MiniMax-H3` as a reference, but also viewed and based work off of `xmarre/ComfyUI-Spectrum-WAN-Proper` and `xmarre/ComfyUI-Spectrum-Qwen-Proper`: 
+  * [xmarre/ComfyUI-Spectrum-MiniMax-H3](https://github.com/xmarre/ComfyUI-Spectrum-MiniMax-H3) 
+  * [xmarre/ComfyUI-Spectrum-WAN-Proper](https://github.com/xmarre/ComfyUI-Spectrum-WAN-Proper)
+  * [xmarre/ComfyUI-Spectrum-Qwen-Proper](https://github.com/xmarre/ComfyUI-Spectrum-Qwen-Proper)
 
 License: GPL-3.0

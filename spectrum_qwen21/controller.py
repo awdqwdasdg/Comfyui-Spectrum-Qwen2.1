@@ -1,3 +1,18 @@
+# ==============================================================================
+# Provenance:
+# This implementation was generated/adapted for Qwen-Image-2.1 using GLM-5.3
+# after xmarre/ComfyUI-Spectrum-MiniMax-H3 was supplied as a reference.
+# The generation tool also inspected xmarre/ComfyUI-Spectrum-Qwen-Proper
+# and xmarre/ComfyUI-Spectrum-WAN-Proper. Portions of the resulting source
+# are derived from/adapted from GPL-covered xmarre Spectrum implementations.
+# The exact per-file lineage cannot be fully reconstructed from the AI tool
+# traces.
+# 
+# Adapted for Qwen-Image-2.1 by awdqwdasdg; initial publication 2026-09-21.
+# Licensing/provenance notices corrected 2026-09-27.
+# Licensed under the GNU General Public License v3.0. See LICENSE.
+# ==============================================================================
+
 from __future__ import annotations
 
 import math
